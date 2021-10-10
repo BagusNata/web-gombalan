@@ -9,7 +9,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <title>Bagus Nata</title>
+    <title> Nata &#10084;&#65039; </title>
   </head>
 
   <body>
@@ -27,13 +27,13 @@
       class="fixed-bottom text-center my-3"
       onclick="hati()"
     ></span>
- 
+
     <!-- untuk buat alert pake sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript">
       //Buat footer
       const author = "Nata";
-      const emot_jantung = "&#10084;&#65039;"
+      const emot_jantung = "&#10084;&#65039;";
       document.getElementById(
         "hati"
       ).innerHTML = `Made with ${emot_jantung} by ${author}`;
@@ -47,9 +47,9 @@
       //Buat alert pembuka
       async function mulai() {
         await swals.fire(
-          "Halo Cantik",
+          "Hallo Cantik",
           "Aku ada pertanyaan nih buat kamu",
-          "question"
+          
         );
         await swals.fire("Jawab yang jujur ya!");
         await swals.fire("Awas aja kalo boong!!", "", "error");
@@ -114,6 +114,12 @@
           await swals.fire("Yahhh kok namanya gak di isi sih!");
           await swals.fire("Ulang dari awal yaa, inget namanya diisi!");
         }
+      }
+      //Buat fitur confetti ketika di klik emot jantung
+      function hati() {
+        document.getElementById("button").style = "display: none";
+        document.getElementById("iloveyou").style = "";
+        startConfetti();
       }
     </script>
     <script
