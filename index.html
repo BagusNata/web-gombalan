@@ -17,11 +17,12 @@
       <button id="button" class="btn btn-primary btn-lg" onclick="mulai()">
         Pencet disini!
       </button>
+      <!-- Muncul ketika icon hati di klik -->
       <div id="iloveyou" style="display: none">
-        <h2 class="text-center">Aku sayang kamu<br />&#10084;&#65039;</h2>
+        <h2 class="text-center">Aku sayang kamu! <br />&#10084;&#65039;</h2>
       </div>
     </div>
-
+    <!-- Footer hati yang bisa di klik -->
     <span
       id="hati"
       class="fixed-bottom text-center my-3"
@@ -33,10 +34,10 @@
     <script type="text/javascript">
       //Buat footer
       const author = "Nata";
-      const emot_jantung = "&#10084;&#65039;";
+      const emot_hati = "&#10084;&#65039;";
       document.getElementById(
         "hati"
-      ).innerHTML = `Made with ${emot_jantung} by ${author}`;
+      ).innerHTML = `Made with ${emot_hati} by ${author}`;
 
       //Nentuin warna button ok & cancel
       const swals = Swal.mixin({
@@ -56,13 +57,13 @@
         var { value: nama } = await swals.fire({
           title: "Masukin nama kamu duluu",
           input: "text",
-          showCancelButton: true,
+          showCancelButton: false,
         });
 
         //Buat alert opsional
         if (nama) {
           var { isConfirmed: sayang } = await swals.fire({
-            title: `${nama} sayang ga sama ${author}`,
+            title: `${nama} sayang ga sama ${author}?`,
             confirmButtonText: "Sayang",
             cancelButtonText: "Gak",
             showCancelButton: true,
@@ -93,9 +94,9 @@
                 showCancelButton: true,
               });
               if (kangen) {
-                await swals.fire("Huhu iya aku juga kangen kamu :((");
+                await swals.fire("Samaa aku juga kangen sama kamuu :((");
                 await swals.fire("Terakhir deh sayang");
-                await swals.fire("Coba klik ikon hati di paling bawah dong");
+                await swals.fire("Coba klik ikon hati di paling bawah yaa");
               } else {
                 //Buat alert gak kangen
                 await swals.fire("Hmmm jahat bgt :((");
