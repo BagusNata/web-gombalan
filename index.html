@@ -15,7 +15,7 @@
   <body>
     <div class="position-absolute top-50 start-50 translate-middle">
       <button id="button" class="btn btn-primary btn-lg" onclick="mulai()">
-        Click Here!
+        Pencet disini!
       </button>
       <div id="iloveyou" style="display: none">
         <h2 class="text-center">Aku sayang kamu<br />&#10084;&#65039;</h2>
@@ -34,8 +34,24 @@
       document.getElementById(
         "hati"
       ).innerHTML = `Made with &#10084;&#65039; by ${author}`;
-      
-      
+      const swals = Swal.mixin({
+        cancelButtonColor: "#d33",
+        confirmButtonColor: "#3085d6",
+      });
+      async function mulai() {
+        await swals.fire(
+          "Halo Cantik",
+          "Aku ada pertanyaan nih buat kamu",
+          "question"
+        );
+        await swals.fire("Jawab yang jujur ya!");
+        await swals.fire("Awas aja kalo boong!!", "", "error");
+        var { value: nama } = await swals.fire({
+          title: "Masukin nama kamu dulu",
+          input: "text",
+          showCancelButton: true,
+        });
+      }
     </script>
     <script
       type="text/javascript"
