@@ -27,17 +27,24 @@
       class="fixed-bottom text-center my-3"
       onclick="hati()"
     ></span>
-
+ 
+    <!-- untuk buat alert pake sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript">
+      //Buat footer
       const author = "Nata";
+      const emot_jantung = "&#10084;&#65039;"
       document.getElementById(
         "hati"
-      ).innerHTML = `Made with &#10084;&#65039; by ${author}`;
+      ).innerHTML = `Made with ${emot_jantung} by ${author}`;
+
+      //Nentuin warna button ok & cancel
       const swals = Swal.mixin({
-        cancelButtonColor: "#d33",
-        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#DC143C",
+        confirmButtonColor: "#1E90FF",
       });
+
+      //Buat alert pembuka
       async function mulai() {
         await swals.fire(
           "Halo Cantik",
@@ -47,10 +54,66 @@
         await swals.fire("Jawab yang jujur ya!");
         await swals.fire("Awas aja kalo boong!!", "", "error");
         var { value: nama } = await swals.fire({
-          title: "Masukin nama kamu dulu",
+          title: "Masukin nama kamu duluu",
           input: "text",
           showCancelButton: true,
         });
+
+        //Buat alert opsional
+        if (nama) {
+          var { isConfirmed: sayang } = await swals.fire({
+            title: `${nama} sayang ga sama ${author}`,
+            confirmButtonText: "Sayang",
+            cancelButtonText: "Gak",
+            showCancelButton: true,
+          });
+          //Buat alert range 1-100
+          if (sayang) {
+            await swals.fire("Aku juga sayang kok sama kamuu :))");
+            var { value: persen } = await swals.fire({
+              title: "Seberapa sayang emangnya?",
+              icon: "question",
+              input: "range",
+              inputLabel: "Antara 1-100 yaa",
+              inputAttributes: {
+                min: 1,
+                max: 100,
+              },
+              inputValue: 50, //agar awal range mulai dari value 50
+            });
+            if (persen) {
+              await swals.fire(
+                `Makasih ya udah sayang sama ${author} ${persen}%`
+              );
+              //Buat alert kangen
+              var { isConfirmed: kangen } = await swals.fire({
+                title: "Sekarang kamu kangen ga sama aku?",
+                confirmButtonText: "Kangen",
+                cancelButtonText: "Gak!",
+                showCancelButton: true,
+              });
+              if (kangen) {
+                await swals.fire("Huhu iya aku juga kangen kamu :((");
+                await swals.fire("Terakhir deh sayang");
+                await swals.fire("Coba klik ikon hati di paling bawah dong");
+              } else {
+                //Buat alert gak kangen
+                await swals.fire("Hmmm jahat bgt :((");
+                await swals.fire("Padahal aku kangen lo sama kamu :((");
+                await swals.fire("Dahlah BYE!");
+              }
+            }
+          } else {
+            //Buat alert gak sayang
+            await swals.fire("Positive thinking mungkin belum kali yaaa");
+            await swals.fire("Tapi nanti kalo udh sayang bilang yaa :)");
+            await swals.fire("Udah segitu aja, byee...");
+          }
+        } else {
+          //Buat alert kalo gk isi nama
+          await swals.fire("Yahhh kok namanya gak di isi sih!");
+          await swals.fire("Ulang dari awal yaa, inget namanya diisi!");
+        }
       }
     </script>
     <script
