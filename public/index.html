@@ -9,10 +9,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <title> Nata &#10084;&#65039; </title>
+    <link rel="stylesheet" href="style.css" />
+    <title>Nata &#10084;&#65039;</title>
   </head>
 
-  <body>
+  <body class="bg-color">
     <div class="position-absolute top-50 start-50 translate-middle">
       <button id="button" class="btn btn-primary btn-lg" onclick="mulai()">
         Pencet disini!
@@ -22,6 +23,7 @@
         <h2 class="text-center">Aku sayang kamu! <br />&#10084;&#65039;</h2>
       </div>
     </div>
+
     <!-- Footer hati yang bisa di klik -->
     <span
       id="hati"
@@ -47,11 +49,7 @@
 
       //Buat alert pembuka
       async function mulai() {
-        await swals.fire(
-          "Hallo Cantik",
-          "Aku ada pertanyaan nih buat kamu",
-          
-        );
+        await swals.fire("Hallo Cantik", "Aku ada pertanyaan nih buat kamu");
         await swals.fire("Jawab yang jujur ya!");
         await swals.fire("Awas aja kalo boong!!", "", "error");
         var { value: nama } = await swals.fire({
@@ -120,6 +118,7 @@
       function hati() {
         document.getElementById("button").style = "display: none";
         document.getElementById("iloveyou").style = "";
+        document.body.style.backgroundColor = "lightpink";
         startConfetti();
       }
     </script>
